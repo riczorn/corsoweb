@@ -21,6 +21,7 @@ function login() {
 
     // Prendo il parametro login inviato dalla form html:
     $login = $_GET['login'];
+    
     // Prendo la password; grazie al "@" non scriverà una notice se non c'è la password.
     $password = @$_GET['password'];
     
