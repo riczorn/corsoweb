@@ -16,12 +16,38 @@
  */
 include (__DIR__ . '/config.php');
 
+// Sposto l'html sopra, così l'HEAD è già inviato quando avviene il login
+?>
+
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" type="text/css">
+  </head>
+  <body class="cols-2">
+    <div class="login">
+      <div class="headerZZ">
+        <p>Login sicuro</p>
+      </div>
+      <div class="main">
+        <form>
+          <input type="text" name="login" placeholder="login" value="<?php echo @$_GET['login']; ?>">
+          <input type="password" name="password" placeholder="password" value="<?php echo @$_GET['password']; ?>">
+          <input type="submit" value="accedi">
+        </form>
+      </div>
+    </div>
+    <div class="result">
+<?php
 
 function login() {
+    if (empty($_GET['login'])) {
+      return false;
+    }
+    
     $mysqli = connect();
 
     $login = $_GET['login'];
-    $password = $_GET['password'];
+    $password = @$_GET['password'];
     
     $sql = "
         SELECT * FROM `test_users`
@@ -52,15 +78,6 @@ function login() {
 login();
 ?>
 
-<html>
-  <head>
-    <link rel="stylesheet" href="style.css" type="text/css">
-  </head>
-  <body>
-    <form>
-      <input type="text" name="login" placeholder="login" value="<?php echo $_GET['login']; ?>">
-      <input type="password" name="password" placeholder="password" value="<?php echo $_GET['password']; ?>">
-      <input type="submit" value="accedi">
-    </form>
+    </div>
   </body>
 </html>

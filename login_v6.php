@@ -17,6 +17,10 @@
 
 include (__DIR__ . '/config.php');
 function login() {
+    if (empty($_GET['login'])) {
+      return false;
+    }
+    
     $mysqli = connect();
 
     // Prendo il parametro login inviato dalla form html:

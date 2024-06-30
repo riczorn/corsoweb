@@ -25,8 +25,7 @@ Meglio ancora, scarica il repository nella cartella.
 # Configurazione
 
 Copia il file config.dist.php su config.php
-Aprilo, e 
-
+Aprilo, e correggi database, login e password
 
 # Installazione DB
 

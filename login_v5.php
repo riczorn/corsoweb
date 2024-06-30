@@ -17,10 +17,15 @@
 include (__DIR__ . '/config.php');
 
 function login() {
+    if (empty($_GET['login'])) {
+      return false;
+    }
+    
     $mysqli = connect();
 
+
     $login = $_GET['login'];
-    $password = $_GET['password'];
+    $password = @$_GET['password'];
 
     $sql = "
         SELECT * FROM `test_users`
@@ -60,8 +65,8 @@ if (login()) {
 <html>
   <body>
     <form>
-      <input type="text" name="login" placeholder="login" value="<?php echo $_GET['login']; ?>">
-      <input type="password" name="password" placeholder="password" value="<?php echo $_GET['password']; ?>">
+      <input type="text" name="login" placeholder="login" value="<?php echo @$_GET['login']; ?>">
+      <input type="password" name="password" placeholder="password" value="<?php echo @$_GET['password']; ?>">
       <input type="submit" value="accedi">
     </form>
   </body>

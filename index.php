@@ -1,4 +1,8 @@
 <html>
+<head>
+    <link rel="stylesheet" href="style.css" type="text/css">
+  </head>
+<body>
 <h1>Corso di Cybersecurity</h1>
 
 <h2>Lezione 11: App di Login</h2>
@@ -13,25 +17,54 @@
 <li><a href="login_v5.php">Lettura DB e confronto con input</a></li>
 <li><a href="login_v6.php">Messaggio di login e foglio di stile CSS</a></li>
 <li><a href="login_v7.php">Login più bello</a></li>
-<li><a href="login_v8.php"></a></li>
+<li><a href="login_v8.php">Login sicuro</a></li>
 </ol>
 
-<h2>Utenti registrati</h2>
-<ul>
 <?php
 include (__DIR__ . '/config.php');
 $mysqli = connect();
-  if (empty($_GET)) {
+  if (empty($_GET['category'])) {
     $sql = "SELECT DISTINCT category FROM `products`";
-  }
-  $result = $mysqli->query($sql);
-  if (!$result) {
-      die("Query Error " . $sql . "; "  . $mysqli->error);
-  }
-  while ($row = $result->fetch_row()) {
-    echo "<li>" . json_encode($row) . "</li>";
-  }
+    $result = $mysqli->query($sql);
+    if (!$result) {
+        die("Query Error " . $sql . "; "  . $mysqli->error);
+    }
+    echo "<h2>Categorie</h2> <ul class='cats'>";
+    while ($row = $result->fetch_row()) {
+      $a = "<a href='?category=" . trim($row[0]) . "'>$row[0]</a>";
+      echo "<li>$a</li>";
+    }
+    echo "</ul>";
+  } else {
 
+    $cat = $_GET['category'];
+    $sql = "SELECT * FROM `products` where category='$cat'";
+    $result = $mysqli->query($sql);
+    if (!$result) {
+        die("Query2 Error " . $sql . "; "  . $mysqli->error);
+    }
+    
+    echo "<h2>Prodotti</h2>
+          <p><a href='?'>View all</a></p> <ul class='productsZZ'>";
+    
+
+    while ($obj = $result->fetch_object()) {
+      
+      echo "<li>
+        <div class='prod_main'>
+          <h3 class='name'>$obj->name</h3>  
+          <p class='cat'>$obj->category</p>
+          <p>$obj->description</p>
+        </div>  
+        <img class='detail' src='$obj->image'>        
+      </li>";
+      // echo "<li>" . json_encode($obj) . "</li>";
+      //echo "<div>";
+    }
+    
+    echo "</ul>";
+  }
+  
   $mysqli->close();
 ?>  
-</ul>
+</body>
