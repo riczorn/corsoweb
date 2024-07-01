@@ -29,9 +29,9 @@ include (__DIR__ . '/config.php');
         <p>Login sicuro</p>
       </div>
       <div class="main">
-        <form>
-          <input type="text" name="login" placeholder="login" value="<?php echo @$_GET['login']; ?>">
-          <input type="password" name="password" placeholder="password" value="<?php echo @$_GET['password']; ?>">
+        <form method="POST">
+          <input type="text" name="login" placeholder="login" value="<?php echo @$_POST['login']; ?>">
+          <input type="password" name="password" placeholder="password" value="<?php echo @$_POST['password']; ?>">
           <input type="submit" value="accedi">
         </form>
       </div>
@@ -40,14 +40,14 @@ include (__DIR__ . '/config.php');
 <?php
 
 function login() {
-    if (empty($_GET['login'])) {
+    if (empty($_POST['login'])) {
       return false;
     }
     
     $mysqli = connect();
 
-    $login = $_GET['login'];
-    $password = @$_GET['password'];
+    $login = $_POST['login'];
+    $password = @$_POST['password'];
     
     $sql = "
         SELECT * FROM `test_users`
