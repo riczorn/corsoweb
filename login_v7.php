@@ -25,7 +25,7 @@ include (__DIR__ . '/config.php');
   </head>
   <body class="cols-2">
     <div class="login">
-      <div class="headerZZ">
+      <div class="header">
         <p>Login sicuro</p>
       </div>
       <div class="main">
