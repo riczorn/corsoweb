@@ -45,6 +45,7 @@ $mysqli = connect();
     }
     
     echo "<h2>Prodotti</h2>
+          <pre>$sql</pre>
           <p><a href='?'>View all</a></p> <ul class='products'>";
     
 
