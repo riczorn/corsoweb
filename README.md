@@ -44,4 +44,6 @@ Detto che il tuo nome utente è "nomeutente", e il nome del database "nomedataba
 mysql -u nomeutente -p nomedatabase < database.sql
 ```
 
+## Foglio di stile
 
+Crea un file custom.css per le tue regole personalizzate, verrà incluso automaticamente

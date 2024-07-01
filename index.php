@@ -45,7 +45,7 @@ $mysqli = connect();
     }
     
     echo "<h2>Prodotti</h2>
-          <p><a href='?'>View all</a></p> <ul class='productsZZ'>";
+          <p><a href='?'>View all</a></p> <ul class='products'>";
     
 
     while ($obj = $result->fetch_object()) {
