@@ -16,5 +16,6 @@ include (__DIR__ . '/config.php');
 $obj = new \stdClass();
 $obj->status = 'success';
 $obj->login = 'ric';
+$obj->address = ['Via dei Platani, 13','Roma'];
 $obj->date = date('Y-m-d H:i:s');
 echo json_encode($obj);

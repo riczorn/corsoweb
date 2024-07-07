@@ -1,3 +1,19 @@
+<?php
+/**
+ * Corso di Cybersecurity
+ * Indice dei contenuti
+ * 
+ * @version	28/7/2024
+ * @package Cybersecurity drills
+ *
+ * @author Riccardo Zorn code@fasterweb.net
+ * @copyright (C) 2024 https://fasterweb.net
+ * @license GNU/GPL v2 or greater http://www.gnu.org/licenses/gpl-2.0.html
+ * 
+ */
+include (__DIR__ . '/config.php');
+
+?>
 <html>
 <head>
     <link rel="stylesheet" href="style.css" type="text/css">
@@ -18,7 +34,8 @@
 <li><a href="login_v6.php">Messaggio di login e foglio di stile CSS</a></li>
 <li><a href="login_v7.php">Login più bello</a></li>
 <li><a href="login_v8.php">Login sicuro</a></li>
-<li><a href="login_v8.php">Imposta i cookies login e authcode</a></li>
+<li><a href="login_v9.php">Imposta i cookies login e authcode</a></li>
+<li><a href="json.php">Restituisce un oggetto JSON</a></li>
 </ol>
 
 <?php

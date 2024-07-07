@@ -43,6 +43,13 @@ include (__DIR__ . '/config.php');
 <?php
 
 function login() {
+    // Uso l'array $_POST per leggere i contenuti della richiesta;
+    // osserva che il metodo della <form> HTML è POST.
+    // Abbiamo usato $_GET precedentemente. L'altro array fondamentale di sistema è 
+    // $_SERVER, che contiene tutte le variabili di sistema e del web server, quali
+    // il nome e versione, l'ip dell'utente, 
+    // il HTTP_REFERER ovvero la pagina da cui ha avuto origine la richiesta.
+
     if (empty($_POST['login'])) {
       return false;
     }
@@ -72,8 +79,10 @@ function login() {
 
     if ($row) {
         echo "<h3>Welcome, $login </h3>";
-        setcookie('login', $login);
-        setcookie('authcode', md5($login.$password));
+        // imposto il cookie in maniera insicura (ovvero senza specificare un percorso);
+        // fortunatamente non specificandone la vita, si cancellerà quando chiudo il browser.
+        setcookie('login', $login, time()+60*60*24*30, '/', 'fasterweb.net');
+        setcookie('authcode', md5($login.$password), time()+60*60*24*30, '/', 'fasterweb.net');
         
         echo "<p>(a cookie was set)</p>";
         echo "<img class='right' src='img/user.webp'>";
