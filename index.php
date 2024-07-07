@@ -18,6 +18,7 @@
 <li><a href="login_v6.php">Messaggio di login e foglio di stile CSS</a></li>
 <li><a href="login_v7.php">Login più bello</a></li>
 <li><a href="login_v8.php">Login sicuro</a></li>
+<li><a href="login_v8.php">Imposta i cookies login e authcode</a></li>
 </ol>
 
 <?php

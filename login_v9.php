@@ -72,6 +72,10 @@ function login() {
 
     if ($row) {
         echo "<h3>Welcome, $login </h3>";
+        setcookie('login', $login);
+        setcookie('authcode', md5($login.$password));
+        
+        echo "<p>(a cookie was set)</p>";
         echo "<img class='right' src='img/user.webp'>";
         echo "<pre class='code'>$sql</pre>";
         return true;
