@@ -81,7 +81,7 @@ function login() {
         echo "<h3>Welcome, $login </h3>";
         // imposto il cookie in maniera insicura (ovvero senza specificare un percorso);
         // fortunatamente non specificandone la vita, si cancellerà quando chiudo il browser.
-        setcookie('login', $login, time()+60*60*24*30, '/', 'fasterweb.net');
+        setcookie('login', $login, time()+60*60*24*30, '/');
         setcookie('authcode', md5($login.$password), time()+60*60*24*30, '/', 'fasterweb.net');
         
         echo "<p>(a cookie was set)</p>";
